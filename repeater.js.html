@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="repeater.js"></script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>WebSite</th>
+                <th>Remark</th>
+                <th>Delete</th>
+            </tr>
+            <tr id="myTR">
+                <td>{%Name%}</td>
+                <td>{%Age%}</td>
+                <td>{%WebSite%}</td>
+                <td><input type="text" value="{%Remark%}"/></td>
+                <td><button style="display:{$$.IF({%AllowDelete%}==true,inline,none)}">Delete</button></td>
+            </tr>
+        </table>
+    </body>
+    <script>
+        var jsonString = '[{"Id": 1, "Name": "David", "Age": 26, "WebSite": "http://www.david.com/", "Remark": "Remarks Here", "AllowDelete": true},{"Id": 2, "Name": "Michael", "Age": 30, "WebSite": "http://www.michael.com/", "AllowDelete": true},{"Id": 3, "Name": "Jonatan", "Age": 12, "WebSite": "http://www.jonatan.com/", "Remark": "Remarks...", "AllowDelete": false}]';
+        var json = JSON.parse(jsonString);
+        $('#myTR').loadRepeater(json, {onFinish: function(){console.log('finish!',new Date())}, uniqueIdentifier: "Id", createLinks: true});
+    </script>
+</html>
