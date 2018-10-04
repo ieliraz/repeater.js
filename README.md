@@ -32,18 +32,33 @@ Mehod:
 loadRepeater
 
 Parameters:
+
 jsonTable - Json objects array that contain the data to load
+
 options - Json options:
+
         onFinish: js function to call on finish (default null),
+        
         onFinishNoLines: js function to call on finish when have no rows in jsonTable (default null),
+        
         oldRecordMethod: what to do when load again on same element - 'keep' / 'remove' / 'hide' (default 'remove'),
+        
         uniqueIdentifier: the unique identifier field in the jsonTable, when oldRecordMethod is 'keep' - anyway replace this row (default ''),
+        
         reloadExistsRecoreds: if false when same uniqueIdentifier - this row stay as is was (default true),
+        
         deleteRepeaterBase: delete from the DOM the element with the repeate chars (default false),
+        
         hideRepeaterBase: hide the element with the repeate chars (default true),
+        
         dataToAdd: add this values (comma delimited) as data to the element (default ''),
+        
         addAllTableData: add all keys in the json as data (default false),
+        
         addJqueryData: add the parant dataset as data (default false),
+        
         deleteParentDataAttr: delte the parent data (default false),
+        
         data: some data to send to onFinish (default null),
+        
         createLinks: if find http links - make them clickable (default false)
